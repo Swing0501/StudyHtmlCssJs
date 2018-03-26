@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+li,ul,div{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+.box{
+	height: 300px;
+	width: 600px;
+	background-color: #fff;
+	border: 5px solid blue;
+	margin:0 auto;
+}
+.bar{
+	height: 50px;
+	width: 100%;
+	font: 18px/40px "宋体";
+	background-color: #c1c1c1;
+	font-weight: bold;
+	border-bottom: 1px solid blue;
+	color: #fff;
+}
+.bar li{
+	float: left;
+	height: 40px;
+	margin: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-right: 2px solid #fff;
+	text-align: center;
+}
+.bar li:hover{
+	background-color: blue;
+	border-radius: 10px;
+}
+.hide{
+	border: 1px solid #000;
+	height: 40px;
+	width: 55%;
+}
+.hide li{
+	float: left;
+	color: blue;
+	font:14px/20px "宋体";
+	height: 20px;
+	border-right: 1px solid #000;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+}
+.hide li:hover{
+	color: red;
+}
+#one ,#two ,#three ,#four{
+	display: none;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	//var oUl = document.getElementsByClassName('bar');
+	var aUl = document.getElementsByTagName('ul');
+	var aLi = aUl[0].getElementsByTagName('li');
+	var aLi1 = aUl[1].getElementsByTagName('li');
+	var aLi2 = aUl[2].getElementsByTagName('li');
+	var aLi3 = aUl[3].getElementsByTagName('li');
+	var aLi4 = aUl[4].getElementsByTagName('li');
+
+	for (var i = 0; i < aLi.length; i++) {
+		//var num = 0;
+		aLi[i].index = i++;
+		aLi[i].onmouseover = function(){
+			for (var i = 1; i < aUl.length; i++) {
+				aUl[i].style.display = 'none';
+			}
+			aUl[this.index].style.display = 'block';
+		
+		}
+		aLi[i].onmouseout = function(){
+			for (var i = 1; i < aUl.length; i++) {
+				aUl[i].style.display = 'none';
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div class = 'box'>
+<ul class = 'bar'>
+	<li>首页</li>
+	<li>关于我们</li>
+	<li>作品</li>
+	<li>博客</li>
+</ul>
+
+<ul id = 'one' class="hide">
+	<li>最近更新</li>
+	<li>活动</li>
+	<li>报名试听</li>
+	<li>学员反馈</li>
+</ul>
+<ul id = 'two' class="hide">
+	<li>妙味讲师</li>
+	<li>培训方式</li>
+	<li>培训理念</li>
+	<li>联系我们</li>
+</ul>
+<ul id = 'three' class="hide">
+	<li>班固</li>
+	<li>MAT</li>
+	<li>留学网</li>
+	<li>ECMall</li>
+</ul>
+<ul id = 'four' class="hide">
+	<li>妙味讲师</li>
+	<li>培训方式</li>
+	<li>培训理念</li>
+	<li>联系我们</li>
+</ul>
+</div>
+</body>
+</html>

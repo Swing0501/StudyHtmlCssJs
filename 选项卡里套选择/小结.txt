@@ -1,0 +1,2 @@
+1，超出的部分使用overflow:hidden;
+2，float：left 可以让其横向排列

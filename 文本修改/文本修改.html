@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+body,ul,li,p,input,img,a,h3{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+.center{
+	width: 569px;
+	height: 109px;
+	background: #fff;
+	border: 1px solid #000;
+	margin: 0 auto;
+}
+.center h3{
+	height: 30px;
+	font-size: 14px;
+	text-indent: 26px;
+	line-height: 30px;
+	color: #fff;
+	background:#6ba542;
+}
+.center ul li{
+	width: 100%;
+	height: 39px;
+	border-bottom: 1px solid #bddede;
+}
+.center ul li .txt{
+	padding: 6px 0;
+	height: 27px;
+	width: 100%;
+	display: none;
+}
+.center ul li input{
+	width: 150px;
+	height: 22px;
+	float: left;
+	margin: 0 11px 0 20px;
+}
+.center ul li .txt a{
+	display: block;
+	float: left;
+	width: 48px;
+	height: 24px;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: center;
+	color: #429400;
+	text-decoration: none;
+	margin-right: 10px;
+}
+.center ul li .txt a:hover{
+	background-color: #429400;
+	color: #fff;
+}
+.btn{
+	width: 100%;
+	height: 39px;
+}
+.btn p{
+	text-indent: 26px;
+	line-height: 39px;
+	float: left;
+	margin-right: 10px;
+}
+.btn a{
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: url(img/btn.png) no-repeat;
+	margin-top: 10px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	fnTab('last1','text1','btn1','btn2','btn3','first1','p1');
+	fnTab('last2','text2','btn4','btn5','btn6','first2','p2');
+	function fnTab(last,text,btn1,btn2,btn3,first,p){
+		var oDiv = document.getElementById('con');
+		var oLast = document.getElementById(last);
+		var oText = document.getElementById(text);
+		var oBtn1= document.getElementById(btn1);
+		var oBtn2 = document.getElementById(btn2);
+		var oBtn3 = document.getElementById(btn3);
+		var oFirst = document.getElementById(first);
+		var oP = document.getElementById(p);
+
+		//编辑
+		oBtn3.onclick = function(){
+			oText.value = oP.innerHTML;
+			oLast.style.display = 'block';
+			oFirst.style.display = 'none';		
+		}
+		//保存
+		oBtn1.onclick = function(){
+			if(oText.value == ''){
+				oText.value = oP.innerHTML;
+			}else{
+				oP.innerHTML = oText.value;
+			}
+			oLast.style.display = 'none';
+			oFirst.style.display = 'block';
+		}
+		//取消
+		oBtn2.onclick = function(){
+			//oText1.value = oP1.innerHTML;
+			oLast.style.display = 'none';
+			oFirst.style.display = 'block';
+
+		}
+	}
+};
+</script>
+</head>
+<body>
+<div class = "center" id="con">
+	<h3>类型分类</h3>
+	<ul>
+		<li>
+			<div id='last1' class="txt">
+				<input  id="text1" type="text">
+				<a href="javascript:void(0)" id="btn1">保存</a>
+				<a href="javascript:void(0)" id="btn2">取消</a>
+			</div>
+			<div id="first1" class="btn">
+				<p id="p1">妙味课堂</p>
+				<a id="btn3" href="javascript:void(0)" title='点击编辑'></a>
+			</div>
+		</li>
+		<li>
+			<div id='last2' class="txt">
+				<input  id="text2" type="text">
+				<a href="javascript:void(0)" id="btn4">保存</a>
+				<a href="javascript:void(0)" id="btn5">取消</a>
+			</div>
+			<div id="first2" class="btn">
+				<p id="p2">妙味课堂</p>
+				<a id="btn6" href="javascript:void(0)" title='点击编辑'></a>
+			</div>
+		</li>
+	</ul>
+</div>
+	
+</body>
+</html>

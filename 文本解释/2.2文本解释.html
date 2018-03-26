@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style>
+*{margin:0;padding:0;}
+li {list-style:none; width:50px; height:50px; float:left;  background:#f1f1f1; position:relative; z-index:2;margin:30px; }
+ul{width:700px;margin:150px auto;}
+div { width:238px; height:148px; background:url(2.3_img/0.png) no-repeat; position:absolute; bottom:42px; left:0px; display:none;z-index:1;}
+</style>
+<script>
+window.onload = function(){
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aLi = document.getElementsByTagName('li');
+	//var aDiv = aLi.getElementByTagName('div')[0];
+	var onOff = true;
+	var that = null;
+	var num = 1;
+	var arr = ["2.3_img/0.png","2.3_img/1.png","2.3_img/2.png","2.3_img/3.png","2.3_img/4.png","2.3_img/5.png","2.3_img/6.png","2.3_img/7.png","2.3_img/8.png","2.3_img/9.png","2.3_img/10.png","2.3_img/11.png","2.3_img/12.png"];
+	for(var i=0;i<arr.length;i++){
+		aLi[i].innerHTML = '<img src="'+arr[i+1]+'"/><div></div>';
+		aLi[i].onmouseover = function(){
+			that = this;
+			fn1();
+			};
+		aLi[i].onmouseout = function (){
+			this.getElementsByTagName('div')[0].style.display = 'none';
+		};
+	}
+	function fn1(){
+		that.getElementsByTagName('div')[0].style.display = 'block';
+		//that.innerHTML = '<img src="'+arr[i]+'"/>'
+	}
+};
+
+
+
+</script>
+
+<body>
+<ul>
+	<li>
+  
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+  <li>
+  	<div></div>
+  </li>
+</ul>
+</body>
+</html>

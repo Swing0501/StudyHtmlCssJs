@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oTable = document.getElementById('table1');
+		//var oTbody = oTable.tBodies[0];
+		var data = [
+			{id:1,username:'小王',sex:'男'},
+			{id:2,username:'小粒',sex:'女'},
+			{id:3,username:'小黑',sex:'男'}
+		];
+		var oBody = document.createElement('tBody');
+		oTable.appendChild(oBody);
+		for (var i = 0; i < data.length; i++) {
+			var oTr = document.createElement('tr');
+			var oTd = document.createElement('td');
+			oTd.innerHTML = data[i].id;
+			oTr.appendChild(oTd);
+			oTd = document.createElement('td');
+			oTd.innerHTML = data[i].username;
+			oTr.appendChild(oTd);
+			oTd = document.createElement('td');
+			oTd.innerHTML = data[i].sex;
+			oTr.appendChild(oTd);
+			oTd = document.createElement('td');
+			//oTd.innerHTML = data[i].sex;
+			oTr.appendChild(oTd);
+			var oA = document.createElement('a');
+			oA.innerHTML = '删除';
+			oA.href = "javascript:;";
+			oA.onclick = function(){
+				removeChild(this.parentNode.parentNode);
+			}
+			oTd.appendChild(oA);
+
+
+			oBody.appendChild(oTr);
+
+			
+		}
+		/*oTable.tHead.style.borderColor = 'red';
+		oTable.tBodies[1].rows[1].cells[2].style.backgroundColor = 'pink';
+		oTable.tFoot.style.background = '#ccc';*/
+	}
+	</script>
+</head>
+<body>
+	<table border="" id="table1">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<!-- <tbody>
+			<tr>
+				<td>001</td>
+				<td>小航</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>小张</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>小粒</td>
+				<td>女</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td>004</td>
+				<td>小王</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>005</td>
+				<td>小黑</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>006</td>
+				<td>小画</td>
+				<td>女</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>007</td>
+				<td>小杨</td>
+				<td>女</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>008</td>
+				<td>小戴</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tfoot> -->
+	</table>
+</body>
+</html>

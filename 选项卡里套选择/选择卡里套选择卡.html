@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+.box{
+	width: 800px;
+	height: 400px;
+	border: 1px solid pink; 
+	margin: 10px auto;
+	overflow: hidden;
+}
+.box .left{
+	float: left;
+	width: 200px;
+	height: 400px;
+	/* border: 1px solid yellow; */
+}
+.left li{
+	background-color: #f1f1f1;
+}
+.left li,.left li.active{
+	height:98px;
+	font-size: 18px;
+	font-family: "宋体";
+	text-align: center;
+	line-height: 98px;
+	border: 1px solid #000;
+}
+.left li.active{
+	background-color: #fff;
+}
+.box .right{
+	float: right;
+	width: 600px;
+	height: 400px;
+	background-color: #f1f1f1;
+	position: relative;
+}
+.box .right img{
+	width: 600px;
+	height: 400px;
+}
+.box .right span{
+	height: 50px;
+	width: 101%;
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	/* border: 1px solid #000; */ 
+}
+.box .right span a{
+	font-size: 16px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background-color: #c1c1c1;
+	font-family: "宋体";
+	display: block;
+	float: left;
+	height: 50px;
+	margin: 1px;
+}
+.box .right span a.active{
+	background-color: pink;
+}
+.card1 span a{
+	width: 19.6%;
+}
+.card2 span a,.card4 span a{
+	width: 24.6%;
+}
+.card3 span a{
+	width: 32.8%;
+}
+.card1{
+	display: block;
+}
+.card2,.card3,.card4{
+	display: none;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oUl = document.getElementById('lis1');
+	var aLi = oUl.getElementsByTagName('li');
+	var oDiv = document.getElementsByTagName('div');
+	var aA1 = oDiv[3].getElementsByTagName('a');
+	var aA2 = oDiv[4].getElementsByTagName('a');
+	var aA3 = oDiv[5].getElementsByTagName('a');
+	var aA4 = oDiv[6].getElementsByTagName('a');
+	var aImg = document.getElementsByTagName('img');
+	var arr1 = [['img/1_1.jpg','img/1_2.jpg','img/1_3.jpg','img/1_4.jpg','img/1_5.jpg'],['img/1_2.jpg','img/1_3.jpg','img/1_4.jpg','img/1_5.jpg'],['img/1_3.jpg','img/1_4.jpg','img/1_5.jpg'],['img/1_2.jpg','img/1_3.jpg','img/1_4.jpg','img/1_5.jpg']];
+	//初始化
+	for (var i = 0; i < aImg.length; i++) {
+		aImg[i].src = arr1[i][0];
+	}
+	
+	fnTab(3,aA1,aImg[0],arr1[0]);
+	fnTab(4,aA2,aImg[1],arr1[1]);
+	fnTab(5,aA3,aImg[2],arr1[2]);
+	fnTab(6,aA4,aImg[3],arr1[3]);
+
+	function fnTab(id,aA,aImg,arr){
+	//左边框
+		for (var i = 0; i < aLi.length; i++) {
+			aLi[i].index = i;
+			aLi[i].onclick = function(){
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].className='';
+					oDiv[i+3].style.display = 'none';
+				}
+			aLi[this.index].className = 'active';
+			oDiv[this.index+3].style.display = 'block';
+			}
+		}	
+		//右边框
+		for (var i = 0; i < aA.length; i++) {
+			aA[i].index = i;
+			aA[i].onclick = function(){
+				for (var i = 0; i < aA.length; i++) {
+					aA[i].className = '';
+				}
+				aA[this.index].className = 'active';
+				aImg.src = arr[this.index];
+			}
+
+	}
+}
+
+
+};
+</script>
+<body>
+<div class="box">
+	<div class="left" >
+		<ul class="lis" id="lis1">
+			<li class="active">最热团购</li>
+			<li>商品特惠</li>
+			<li>名品推荐</li>
+			<li>缤纷活动</li>
+		</ul>
+	</div>
+	<div class="right">
+		<div class = 'card1'>
+			<img src="">
+			<span>
+				<a  class="active" href="javascript:void(0)">商品1</a>
+				<a href="javascript:void(0)">商品2</a>
+				<a href="javascript:void(0)">商品3</a>
+				<a href="javascript:void(0)">商品4</a>
+				<a href="javascript:void(0)">商品5</a>
+			</span>
+		</div>
+		<div class = 'card2'>
+			<img src="">
+			<span>
+				<a class="active" href="javascript:void(0)">商品1</a>
+				<a href="javascript:void(0)">商品2</a>
+				<a href="javascript:void(0)">商品3</a>
+				<a href="javascript:void(0)">商品4</a>
+			</span>
+		</div>
+		<div class = 'card3'>
+			<img src="">
+			<span>
+				<a class="active" href="javascript:void(0)">商品1</a>
+				<a href="javascript:void(0)">商品2</a>
+				<a href="javascript:void(0)">商品3</a>
+			</span>
+		</div>
+		<div class = 'card4'>
+			<img src="">
+			<span>
+				<a class="active" href="javascript:void(0)">商品1</a>
+				<a href="javascript:void(0)">商品2</a>
+				<a href="javascript:void(0)">商品3</a>
+				<a href="javascript:void(0)">商品4</a>
+			</span>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

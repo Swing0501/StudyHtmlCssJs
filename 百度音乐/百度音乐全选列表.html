@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+ul,li,input,span，div{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+	height: 20px;
+	width: 250px;
+	font-size: 16px;
+	line-height: 20px;
+	border: 1px solid #c1c1c1;
+	border-top: none;
+	text-indent: 5px;
+}
+input{
+	font-size: 16px;
+	line-height: 20px;
+	border: 1px solid #c1c1c1;
+	border-radius: 10px;
+	width: 50px;
+	 
+}
+.check{
+	margin: 10px;
+}
+.box{
+	border: 5px solid #c1c1c1;
+	width: 250px;
+	margin: 0 auto;
+	padding-bottom: 10px; 
+
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var all = document.getElementById('all');
+	var oUl = document.getElementsByClassName('music')[0];
+	var aLi = oUl.getElementsByTagName('li');
+	var aInp = oUl.getElementsByTagName('input');
+	var onOff = true;
+	//var num = 0;
+	var arrColor = ['#f7ffff','#fff'];
+//全选
+	all.onclick = function(){
+		if(all.checked ==true){
+			for (var i = 0; i < aLi.length; i++) {
+				aInp[i].checked = true;
+				aLi[i].style.background = '#efefef';
+			}
+		}else{
+			for (var i = 0; i < aLi.length; i++) {
+				this.index = i;
+				aInp[i].checked = false;
+				aLi[i].style.background = arrColor[i%arrColor.length];
+			}
+		}
+	}
+//背景颜色
+	for (var i = 0; i < aLi.length; i++) {
+		aLi[i].index = i;
+		aLi[i].style.background = arrColor[i%arrColor.length];
+
+		aLi[i].onmouseover = function(){
+			this.style.background = '#efefef';
+		};	
+
+		aLi[i].onmouseout = function(){
+			if(aInp[this.index].checked == false){
+				this.style.background = arrColor[this.index%arrColor.length];
+			}
+		};
+	
+	}
+
+	for (var i = 0; i < aInp.length; i++){
+		var num = 0;
+		aInp[i].index = i;
+		aInp[i].onclick =function(){
+			if(aInp[this.index].checked  == true)
+				num++;
+			else{num--;}
+			if(num == aInp.length)
+				all.checked =true;
+			else{all.checked = false;}
+		} 
+		
+		
+	}	
+	
+
+};
+</script>
+
+<body>
+<div class="box">
+<ul class="music">
+	<li><input type="checkbox"><span>那些年</span></li>
+	<li><input type="checkbox" ><span>匆匆那年</span></li>
+	<li><input type="checkbox"><span>致青春</span></li>
+	<li><input type="checkbox"><span>你在终点等我</span></li>
+	<li><input type="checkbox"><span>追光者</span></li>
+	<li><input type="checkbox"><span>同桌的你</span></li>
+	<li><input type="checkbox"><span>左耳</span></li>
+</ul>
+	<input type="checkbox" id="all"><span>全选</span>
+</div>	
+</body>
+</html>

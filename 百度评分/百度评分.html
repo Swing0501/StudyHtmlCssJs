@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+span,body,a,div{
+	margin: 0;
+	padding: 0;
+}
+div{
+	margin: 10px auto;
+	border: 15px solid #f1f1f1;
+	width: 500px;
+	height: 200px;
+	padding: 15px;
+}
+span{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 20px;
+	font-family: "宋体";
+}
+.view{
+	padding-left: 20px;
+	color: red;
+}
+a{
+	background: url('img/start.jpg') no-repeat -85px 0;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+.better{
+	background: url('img/start.jpg') no-repeat -43px 0;
+}
+.best{
+	background: url('img/start.jpg') no-repeat;
+}
+.tips{
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 250px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #c1c1c1;
+	color: #fff;
+	width: 50%;
+	text-align: center;
+	border: 1px solid #f1f1f1;
+	border-radius: 15px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oDiv = document.getElementsByClassName('box')[0];
+	var aA = oDiv.getElementsByTagName('a');
+	var oView = document.getElementsByClassName('view')[0];
+	var oTip = document.getElementsByClassName('tips')[0];
+	var arrView = ["很差","较差","还行","推荐","力荐"]
+	//var starnum = 0;
+	//oView.innerHTML = arrView[0];
+	//alert(oView.innerHTML)
+	function fnTab(){
+		oView.innerHTML = '';
+		for (var i = 0; i < aA.length; i++) {
+			aA[i].className = '';
+		}
+	}
+
+	for (var i = 0; i < aA.length; i++) {
+		aA[i].index = i;
+		aA[i].onmouseover = function(){	
+			fnTab()	;	
+			var starnum = this.index;
+			oView.innerHTML = arrView[starnum];
+			for (var j = 0; j <=starnum; j++) {
+				aA[j].className = 'better';
+			}
+
+		}
+		aA[i].onmouseout = function(){
+			oView.innerHTML = '';
+		}   
+
+		aA[i].onclick = function(){
+			fnTab()	;	
+			var starnum = this.index;
+			oView.innerHTML = arrView[starnum];
+			for (var j = 0; j <=starnum; j++) {
+				aA[j].className = 'best';
+			}
+
+
+		}
+	}
+		
+
+}
+</script>
+</head>
+<body>
+<div class="box">
+	<span>总体评价：</span>
+	<a href="javascript:void(0)"></a>
+	<a href="javascript:void(0)"></a>
+	<a href="javascript:void(0)"></a>
+	<a href="javascript:void(0)"></a>
+	<a href="javascript:void(0)"></a>
+	<span class="view"><!--很差\较差\还行\推荐\力荐 --></span><br />
+	<span class="tips">！小提示：点击星星就能打分</span>
+</div>	
+</body>
+</html>s

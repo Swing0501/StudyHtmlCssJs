@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style>
+*{margin:0;padding:0}
+li{list-style:none;}
+div{width:30px;height:30px;position:absolute;font-size:16px;line-height:30px;text-align:center;/*color:#fff;*/border:1px solid #000;}
+ul{margin:50px;display:block;border:1px solid #000;width:550px;height:300px;position:relative;text-align:center}
+
+</style>
+
+<script>
+window.onload=function(){
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aDiv = document.getElementsByTagName('div');
+	var oInp = document.getElementsByTagName('input')[0];
+	//var aLi = oUl.getElementsByTagName('li');
+	var arr = ["red","yellow","blue"];
+	var onOff = true;
+	var num=1;
+	oInp.onclick = function(){
+		if(onOff)  
+		ab();
+		onOff = false;
+		}
+		
+	function ab(){
+		for(var i=0;i<11;i++){
+			if(i<6){
+				oUl.innerHTML  +='<li><div>'+i+'</div></li>';
+				aDiv[i].style.left = 50*i+'px';
+				aDiv[i].style.top =  50*i+'px';
+				aDiv[i].style.backgroundColor = arr[aDiv.length%3];
+			}else{
+				oUl.innerHTML  +='<li><div>'+i+'</div></li>';
+				aDiv[i].style.left = 50*i+'px';
+				aDiv[i].style.top =  50*(i-2*num)+'px';
+				num++
+				aDiv[i].style.backgroundColor = arr[aDiv.length%3];
+				}
+		}
+	}
+/*	for(var j=10;j<20;j++){
+		
+		oUl.innerHTML  +='<li><div>'+j+'</div></li>';
+		aDiv[j].style.left = 500+50*j+'px';
+		aDiv[j].style.top = 500-50*j+'px';
+		aDiv[j].style.backgroundColor = arr[aDiv.length%3];
+		
+
+	 }*/
+
+};
+</script>
+
+<body>
+<input type="button" value="自动生成V">
+
+<ul>
+
+</ul>
+</body>
+</html>

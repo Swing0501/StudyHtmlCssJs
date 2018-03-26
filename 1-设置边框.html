@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js</title>
+<style>
+*{margin:0;padding:0;}
+#box{width:250px;height:250px;border:3px solid #000;background-color:#9F6;margin:20px;}
+#content{float:left;}
+#div_set{float:left;border:1px solid #000;width:180px;height:200px;font:16px;padding:40px 25px 20px;position:relative;left:200px;top:20px;display:none;}
+</style>
+<script>
+window.onload=function(){
+	var obtn1=document.getElementById("btn1");
+	var obox=document.getElementById("box");
+	var odiv_set=document.getElementById("div_set");
+	var ocolor_red=document.getElementById("color_red");
+	var ocolor_yellow=document.getElementById("color_yellow");
+	var ocolor_blue=document.getElementById("color_blue");
+	var owidth_2=document.getElementById("width_2");
+	var owidth_3=document.getElementById("width_3");
+	var owidth_4=document.getElementById("width_4");
+	var oheight_2=document.getElementById("height_2");
+	var oheight_3=document.getElementById("height_3");
+	var oheight_4=document.getElementById("height_4");
+	var oset_del=document.getElementById("set_del");
+	var oset_sure=document.getElementById("set_sure");
+	
+	obtn1.onclick = function(){
+		odiv_set.style.display = "block";
+		}
+	ocolor_red.onclick = function(){
+		obox.style.backgroundColor="red";
+		}
+	ocolor_yellow.onclick = function(){
+		obox.style.backgroundColor="yellow";
+		}
+	ocolor_blue.onclick = function(){
+		obox.style.backgroundColor="blue";
+		}
+	owidth_2.onclick = function(){
+		obox.style.width="200px";
+		}
+	owidth_3.onclick = function(){
+		obox.style.width="300px";
+		}
+	owidth_4.onclick = function(){
+		obox.style.width="400px";
+		}
+	oheight_2.onclick = function(){
+		obox.style.height="200px";
+		}
+	oheight_3.onclick = function(){
+		obox.style.height="300px";
+		}
+	oheight_4.onclick = function(){
+		obox.style.height="400px";
+		}
+	oset_del.onclick=function(){
+		obox.style.height="250px";
+		obox.style.width="250px";
+		obox.style.backgroundColor="#9F6";}
+	oset_sure.onclick=function(){
+		odiv_set.style.display = "none";
+		}
+	
+	
+	}
+</script>
+</head>
+
+<body>
+<div id="content">
+    <strong>请为下面的边框设计样式：</strong>
+    <input id="btn1" type="button" value="点击设置"/><br />
+    <div id="box"></div>
+</div>
+<div id="div_set">
+<!--背景颜色设置-->
+    <div id="div_color">
+        <p>请选择颜色：</p>
+        <input id="color_red" type="button" value="红"/>
+        <input id="color_yellow" type="button" value="黄"/>
+        <input id="color_blue" type="button" value="蓝"/>
+    </div>
+<!--宽度设置-->
+	<div id="div_width">
+        <p>请选择宽度（px）：</p>
+        <input id="width_2" type="button" value="200"/>
+        <input id="width_3" type="button" value="300"/>
+        <input id="width_4" type="button" value="400"/>
+	</div>
+<!--高度设置-->
+    <div id="div_height">
+        <p>请选择高度（px）：</p>
+        <input id="height_2" type="button" value="200"/>
+        <input id="height_3" type="button" value="300"/>
+        <input id="height_4" type="button" value="400"/>
+    </div>
+        <div id="btn_set">
+        <input id="set_del" type="button" value="恢复"/>
+        <input id="set_sure" type="button" value="确定"/>
+    </div>
+</div>
+</body>
+</html>

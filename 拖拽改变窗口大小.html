@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+*{margin:0;padding: 0;}
+#div1 {width: 500px; height: 300px;position: absolute; z-index: 2;background: red;left: 500px; top: 200px;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	//var disX = 0;
+	//var disY =0;
+
+	oDiv.onmousedown = function(ev){
+		var ev = ev||event;
+		var disX = ev.clientX;
+		var disL = oDiv.offsetLeft;
+		var disW = oDiv.offsetWidth;
+		var disY = ev.clientY;
+		var disT = oDiv.offsetTop;
+		var disH = oDiv.offsetHeight;
+		var b = '';
+		if(disX > disL + disW -15){
+				b="right";
+		}
+		if(disX<disL+15){
+			b ='left';
+		}
+		if(disY > disT + disH -15){
+				b="bottom";
+		}
+		if(disY<disT+15){
+			b ='Top';
+		}
+
+		document.onmousemove = function(ev){
+			var ev = ev || event;
+			
+			switch( b ) {
+				
+				case 'left':
+					oDiv.style.width = disW - ( ev.clientX - disX ) + 'px';
+					oDiv.style.left = disL + ( ev.clientX - disX ) + 'px';
+					break;
+					
+				case 'right':
+					oDiv.style.width = disW + ( ev.clientX - disX ) + 'px';
+					break;
+
+				case 'Top':
+					oDiv.style.height = disH - ( ev.clientY - disY ) + 'px';
+					oDiv.style.top = disH + ( ev.clientY - disY ) + 'px';
+					break;
+
+				case 'bottom':
+					oDiv.style.height = disH + ( ev.clientY - disY ) + 'px';
+					break;
+				
+			}
+		}
+
+
+		document.onmouseup = function(ev){
+			document.onmousemove = document.onmouseup =null;
+		}
+		return false;
+	}
+}
+</script>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

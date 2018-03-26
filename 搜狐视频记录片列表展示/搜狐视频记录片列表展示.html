@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜狐视频记录片列表展示</title>
+<style>
+div,h3,ul,a,li,span,p,input,body{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+#content{
+	background-color: #dee7e7;
+	margin: 0 auto;
+	width: 268px;
+	height: 500px;
+	font-family: "宋体";
+	font-size: 12px;
+}
+#tab_head{
+	color: #183952;
+	height: 38px;
+	width: 262px;
+	border-bottom: 1px solid #94bdd6;
+	/* position: relative; */
+}
+.main_title{
+	float: left;
+	font-weight: bold;
+	text-align: left;
+	font-size: 16px;
+	height:38px;
+	line-height: 38px;
+	text-indent: 13px;
+}
+.right_title{
+	height: 25px;
+	width: 100px;
+	line-height: 18px;
+	float: right;
+	margin-top:12px;
+	border-right: 1px solid #94bdd6;
+	/* position: absolute;
+	right: 0;
+	bottom: 0; */
+}
+.right_title li{
+	padding: 4px;
+	color: #185273;
+	float: left;
+	border: 1px solid #94bdd6;
+	border-bottom: none;
+	border-right: none;
+	overflow: hidden;
+}
+.right_title li.active{
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+	font-weight: bold;
+	color: #000;
+}
+.main{
+
+}
+.main ul li{
+	border-bottom: 1px dashed #fff; 
+	line-height: 20px;
+	margin: 0 8px;
+
+}
+.main ul li.active{
+	height:79px;
+	background-color: #fff;
+	position: relative;
+	border-bottom: 1px dashed #94bdd6; 
+	display: none;
+}
+.main ul li.active p{
+	position: absolute;
+	top:12px;
+	left: 130px;
+	font-size: 12px;
+}
+.main ul li.active img{
+	border:1px solid #94bdd6;
+	display: block;
+	width: 84px;
+	padding: 2px;
+	margin-top: -20px;
+	margin-left: 30px;
+}
+.main ul li.active a{
+	display: block;
+	position: absolute;
+	bottom: 5px;
+	right:5px;
+	background: #21638c;
+	color:#fff;
+	outline: none;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 3px;
+	width: 30px;
+	border:none;
+}
+.main ul li span{
+	width: 18px;
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	text-align: center;
+	background-color:  #29739c;
+	display: inline-block;
+	color: #fff;
+	font-weight: bold;
+	margin-left: 8px;
+	margin-top: 12px;
+	margin-right: 8px;
+	margin-bottom: 12px;
+}
+.main ul li p{
+	font-size: 12px;
+	display: inline; 
+}
+.main ul li img{
+  display: none; 
+}
+.main ul li a{
+	display: none;
+}
+a{
+	text-align:right;
+	float: right;
+	margin-top:10px;
+	margin-right: 10px;
+	color: #000;
+	text-decoration: none;
+}
+</style>
+<script>
+window.onload = function (){
+	//显示区域
+	var oUl = document.getElementsByClassName('news0')[0];
+	var oLi = oUl.getElementsByTagName('li');
+	//选项卡
+	var oUl1 = document.getElementsByClassName('right_title')[0];
+	var oLi1 = oUl1.getElementsByTagName('li');
+
+	//var oDiv = document.getElementsByClassName('main')[0];
+	var num = 0;
+	oLi[num].style.display = 'block';
+
+	for (var i = 0; i < oLi.length; i++) {
+		oLi[i].index = i;
+		oLi[i].onmouseover=function(){
+			for(var i=0;i<oLi.length;i++){
+				oLi[i].className = '';
+			}
+			this.className = 'active';
+			this.style.display = 'block';
+		}
+	}
+	for (var i = 0; i < oLi1.length; i++) {
+		oLi1[i].onclick = function(){
+			for(var i=0;i<oLi1.length;i++){
+				oLi1[i].className = '';
+			}
+			this.className = 'active';
+	}
+	}
+}
+</script>
+</head>
+<body>
+<div id="content">
+	<div id="tab_head"> 
+		<h3 class="main_title">观看排行榜</h3>
+		<ul class="right_title ">
+			<li class="active">每日</li>
+			<li>每周</li>
+			<li>全部</li>
+		</ul>
+	</div>
+	<div class="main">
+		<ul class="news0">
+			<li class="active">
+				<span>1</span>
+				<p>解密：关于地球与人类的一千零一问</p>
+				<img src="img/1.jpg">
+				<a href = "javascript:void(0);" class="player">播放</a>
+			</li>
+	        <li>
+	        	<span>2</span>
+	        	<p>经典传奇：探索全世界大历史事件</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);" class="player">播放</a>
+	        </li>
+	        <li >
+	        	<span>3</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);" class="player">播放</a>
+			</li>
+			<li>
+	        	<span>4</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>5</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>6</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>7</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>8</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>9</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+			<li>
+	        	<span>10</span>
+	        	<p>眼界：厄瓜多尔:中国渔船破坏人类遗</p>
+	        	<img src="img/1.jpg">
+				<a href = "javascript:void(0);"class="player">播放</a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" id="a1">更多>></a>
+	</div>
+</div>	
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>模拟短信发送</title>
+<link href="style.css" rel="stylesheet" />
+
+<script>
+window.onload=function(){
+var oCon = document.getElementById("con");	
+var oCon1 = document.getElementById("con1");	
+var oImg = document.getElementById("img1");
+var oTex = document.getElementById("tex");
+var oSend = document.getElementById("send");
+var oSpan = document.getElementsByTagName('span');
+var arr=["imgs/4.png","imgs/5.png"];
+var onOff=false;
+
+//初始化
+oImg.src = "imgs/4.png";
+
+//头像点击
+oImg.onclick = function(){
+	if(onOff){
+		oImg.src = "imgs/4.png";
+		onOff=false;
+	}else{
+		oImg.src = "imgs/5.png";
+		onOff=true;
+	}
+}
+
+//内容发送
+oSend.onclick = function(){
+     if(oTex.value == ''){
+		 alert("请输入内容！");
+	 }else if(onOff){
+		//oCon1.className = 'left';
+		oCon.innerHTML ="<br />" + '<div class="right"><img src="' + oImg.src + '"/> '+'<span>'+oTex.value+'</span></div>'+oCon.innerHTML;
+		oTex.value = '';
+		//onOff=false;
+	}else if(onOff==false){
+	//oCon.className = 'right';
+	oCon.innerHTML = "<br />" +'<div class="left" ><img src="' + oImg.src + '"/> '+'<span>'+oTex.value+'</span> </div>'+oCon.innerHTML;
+	oTex.value = '';
+	//onOff=true;
+	}
+}
+
+};
+</script>
+</head>
+
+<body>
+
+
+<div id="box">
+	<div id="content"> 
+    	<div id="con">
+        	<!--<img src="imgs/4.png" /> 
+            <span>2016年6月30日 - 简单说:这两个问题其实是同一个问题,但是网上找了好久也找不到方法,外联的js和css文件里不能有任何HTML的标记注释,一旦有,浏览器就疯了!一去掉就好了!.</span>-->
+         </div>
+    </div>
+    <div id="footer">
+    	<div id="img2"><img id="img1" /></div>
+        <input id="tex"type="text" />
+        <a  id="send" href="javascript::" >发送</a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

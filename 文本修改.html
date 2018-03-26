@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+div{
+	width: 400px;
+	height: 150px;
+	margin: 0 auto;
+	padding: 10px;
+	font-size: 16px;
+	font-style: "宋体";
+	line-height: 20px;
+	text-align: center;
+}
+.txt{
+	border: 1px solid green;
+	margin-bottom: 10px;
+	height:20px;
+}
+a{
+	display:none;
+}
+span:hover，a:hover{
+	color:red;
+}
+
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var aLi = document.getElementsByTagName('li');
+	var aInp = aLi.getElementsByTagName('input')[0];
+	var aA = aLi.getElementsByTagName('a')[0];
+	var aSpan = aLi.getElementsByTagName('span');
+
+
+}
+
+</script>
+</head>
+<body>
+<div>
+	<ul>
+		<li>
+			<input  class="txt" type="text" value="可乐">
+			<a href="#">点击编辑</a>
+			<span>保存</span>
+			<span>取消</span>
+		</li>
+		<li>
+			<input class="txt" type="text" value="雪碧">
+			<a href="#">点击编辑</a>
+			<span>保存</span>
+			<span>取消</span>
+		</li>
+	</ul>
+</div>
+	
+</body>
+</html>

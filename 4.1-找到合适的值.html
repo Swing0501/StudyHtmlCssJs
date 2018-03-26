@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<script>
+window.onload=function () {
+    var ob = document.getElementsByTagName('body') [0];
+    var arr = ['100px', 'abc' - 6, [], -98765, 34, -2, 0, '300', ,
+        function () {
+            alert(1);
+        }, null, document, [], true,
+        '200px' - 30, '23.45元', 5, Number('abc'),
+        function () {
+            alert(3);
+        }, 'xyz' - 90];
+    var a1 = [];
+    var a2 = [];
+    var a3 = [];
+    var a4 = [];
+    var a5 = [];
+    var max = 0;
+
+
+
+    for (var i = 0; i < arr.length; i++) {
+        //1.找到arr里所有的字符串:
+        if (typeof arr[i] === "string") {
+            a1.push(arr[i])
+        }
+        //2.找到arr里所有的数字:
+        if (typeof arr[i] === 'number' && !isNaN(arr[i])) {
+            a2.push(arr[i])
+        }
+        //3.找到arr里所有可以转换成数字:
+        if (arr[i] === 0 || parseFloat(arr[i])) {
+            a3.push(arr[i])
+        }
+        //4.arr转换后的数字:
+        if (arr[i] === 0 || parseFloat(arr[i])) {
+            a4.push(parseFloat(arr[i]))
+        }
+        //5.把 NaN 所在的位置找出来
+        if (isNaN(arr[i])&&typeof arr[i]==="number") {
+            a5.push(i);
+        }
+    }
+    //1.打印:
+    ob.innerHTML += '<br>' + '1.找到arr里所有的字符串:';
+    for (var i = 0; i < a1.length; i++) {
+        ob.innerHTML += a1[i] + ' ,';
+    }
+    //2.打印:
+    ob.innerHTML += '<br>' + '2.找到arr里所有的数字:';
+    for (var i = 0; i < a2.length; i++) {
+        ob.innerHTML += a2[i] + ' ,';
+    }
+    //3.打印:
+    ob.innerHTML += '<br>' + '3.找到arr里所有可以转换成数字:';
+    for (var i = 0; i < a3.length; i++) {
+        ob.innerHTML += a3[i] + ' ,';
+    }
+    //4.打印:
+    ob.innerHTML += '<br>' + '4.arr转换后的数字:';
+    for (var i = 0; i < a4.length; i++) {
+        //获取最大值
+        if (max < a4[i]) {
+            max = a4[i];
+        }
+        ob.innerHTML += a4[i] + ' ,';
+    }
+    //4.打印最大值:
+    ob.innerHTML += '  排序后最大值：' + max;
+    //5.打印
+    ob.innerHTML += '<br/>' + '5.把 NaN 所在的位置找出来:  ';
+    for (var i = 0; i < a5.length; i++) {
+        ob.innerHTML += a5[i] + ' ,';
+    }
+}
+
+
+
+/*
+    1、找到arr里所有的字符串：100px ,300 ,23.45元
+   2、找到arr里所有的数字：-98765, 34, -2, 0, 5
+   3、找到可以转成数字的：'100px', -98765, 34, -2, 0, '300', '23.45元',  5
+   4、把转成数字以后，最大值判断出来：300
+   5、把 NaN 所在的位置找出来：1 14 17  19
+*/
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

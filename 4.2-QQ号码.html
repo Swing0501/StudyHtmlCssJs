@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+window.onload = function(){
+	var oInput = document.getElementsByTagName("input");
+	var str='';
+	oInput[1].onclick = function(){
+		str = oInput[0].value;
+		//alert(str);
+			if(str == ''){ alert("输入为空，请请重新输入");}
+			else if(str.length>10){ alert("输入过长"); }
+			else if(str.length<5){alert("输入过短"); }
+			else if(str[0]==0){ alert("不能有0在前面"); }
+			else if(parseInt(str) != parseFloat(str)){alert("输入的必须是数字奥！");}
+			else {alert(str);}
+			
+		
+	}
+
+	/*|| str.length>10 || str.length<5 || str[0]===0 || !number(str) || parseInt(str) != parseFloat(str) */
+	};
+
+
+</script>
+
+<body>
+
+请输入QQ号码：<input type="text" />
+<input type="button" value="判断" />
+
+
+<br />
+</body>
+</html>

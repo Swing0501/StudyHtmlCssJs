@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+li{list-style:none}
+img{display:inline-block;}
+body{background:url(imgs/bg.jpg) no-repeat;background-size:cover;}
+input{border-radius:50px;width:80px;height:30px;line-height:30px;text-align:30px;text-decoration:none;font-size:16px;background-color:#CCC;border:1px solid #000;outline:none;margin:20px;}
+input:hover{background-color:#F66;}
+
+.box{width:960px;height:500px;margin:50px auto;}
+.box_left{width:520px;height:300px;float:left;border:1px solid #000;background-color:#FFF;}
+.box_left img{width:480px;height:280px;margin:10px 20px;}
+.box_right{width:320px;height:300px;float:right;margin-right:80px;border:1px solid #000;background-color:#FFF;}
+.box_right img{width:280px;height:280px;margin:10px 20px;}
+span{display:block;font-size:16px;text-align:left;line-height:16px;margin:15px;}
+p{display:block;font-size:20px;text-align:center;line-height:20px;margin:15px;}
+</style>
+<script>
+window.onload = function(){
+	var aInp = document.getElementsByTagName('input');
+	var oDiv1 = document.getElementById("box_left");
+	var oDiv2 = document.getElementById("box_right");
+	var aImg = document.getElementsByTagName('img');
+	var aP1 = document.getElementById('p1');
+	var aP2 = document.getElementById('p2');
+	var aSpan1 = document.getElementById('span1');
+	var aSpan2 = document.getElementById('span2');
+	var num = 0;
+	var that1 = null;
+	var that2 = null;
+	var arr1 = ["imgs/1_1.jpg","imgs/1_2.jpg","imgs/1_3.jpg","imgs/1_4.jpg"];
+	var arr2 = ["imgs/2_1.jpg","imgs/2_2.jpg","imgs/2_3.jpg"];
+	
+	//初始化
+	aImg[0].src = arr1[num];
+	aP1.innerHTML = "第一组 第"+parseInt(num+1)+"张";
+	aSpan1.innerHTML = parseInt(num+1)+'/'+arr1.length;
+	aImg[1].src = arr2[num];	
+	aP2.innerHTML = "第二组 第"+parseInt(num+1)+"张";
+	aSpan2.innerHTML = parseInt(num+1)+'/'+arr2.length;
+	
+	//单张图片切换
+	for(var i=0;i<aImg.length;i++){
+		aImg[i].num = 0;
+	}
+
+	/*funTab(arr,aP,aSpan,that,num){
+		num++;
+		if(num === arr.length)
+			num = 0;
+		this.src = arr[num];
+		aP.innerHTML = "第一组 第"+parseInt(num+1)+"张";
+		aSpan.innerHTML = parseInt(num+1)+'/'+arr.length;
+		that = num
+	}*/
+	
+	aImg[0].onclick = function(){
+		this.num++;
+		if(this.num === arr1.length)
+			this.num = 0;
+		this.src = arr1[this.num];
+		aP1.innerHTML = "第一组 第"+parseInt(this.num+1)+"张";
+		aSpan1.innerHTML = parseInt(this.num+1)+'/'+arr1.length;
+		that1 = this.num
+		}
+	aImg[1].onclick = function(){
+		this.num++;
+		if(this.num === arr2.length)
+			this.num = 0;
+		this.src = arr2[this.num];
+		aP2.innerHTML = "第二组 第"+parseInt(this.num+1)+"张";
+		aSpan2.innerHTML = parseInt(this.num+1)+'/'+arr2.length;
+		that2 = this.num
+		}
+	
+	
+	//两行图片同时切换
+	for(var i=0;i<aInp.length;i++){
+		aInp[i].num = 0;
+	}
+	aInp[0].onclick = function(){
+		that1--;
+		that2--;
+		if(that1 == -1)
+			that1 = arr1.length-1;
+		if(that2 == -1)
+			that2 = arr2.length-1;
+		aImg[0].src = arr1[that1];
+		aImg[1].src = arr2[that2];
+		aP1.innerHTML = "第一组 第"+parseInt(that1+1)+"张";
+		aSpan1.innerHTML = parseInt(that1+1)+'/'+arr1.length;
+		aP2.innerHTML = "第二组 第"+parseInt(that2+1)+"张";
+		aSpan2.innerHTML = parseInt(that2+1)+'/'+arr2.length;
+		}
+	
+	aInp[1].onclick = function(){
+		that1++;
+		that2++;
+		if(that1 == arr1.length)
+			that1 = 0;
+		if(that2 == arr2.length)
+			that2 = 0;
+		aImg[0].src = arr1[that1];
+		aImg[1].src = arr2[that2];
+		aP1.innerHTML = "第一组 第"+parseInt(that1+1)+"张";
+		aSpan1.innerHTML = parseInt(that1+1)+'/'+arr1.length;
+		aP2.innerHTML = "第二组 第"+parseInt(that2+1)+"张";
+		aSpan2.innerHTML = parseInt(that2+1)+'/'+arr2.length;
+		}
+	
+};
+
+</script>
+</head>
+
+<body>
+<div>
+<input type="button" value="上一组">
+<input type="button" value="下一组">
+<div class="box">
+    <div class="box_left">
+        <img  src="imgs/1_1.jpg" id="img_left">
+        <p id="p1"><p>
+        <span id="span1"></span>
+    </div>
+    <div class="box_right">
+        <img  src="" id="img_right">
+        <p id="p2"><p>
+        <span id="span2"></span>
+    </div>
+</div>
+</div>
+</body>
+</html>
